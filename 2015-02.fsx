@@ -22,11 +22,9 @@ module partTwo =
         let sortedD = d|> Array.sort
         (2 * (sortedD.[0] + sortedD.[1]) + sortedD.[0] * sortedD.[1] * sortedD.[2])
     let sumLenght (arr: (int array) array) =
-        arr 
-        |> Array.map (fun x -> x |> length)
-        |> Array.sum
+        arr |> Array.sumBy (fun x -> x |> length)
+
 
 partOne.dimensions source |> printfn "%d"
 
-partTwo.length [|29;25;16|] |> printfn "%d"
 partTwo.sumLenght source |> printfn "%d"
