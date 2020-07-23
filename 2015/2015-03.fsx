@@ -1,4 +1,3 @@
-open System
 open System.IO
 
 let source = File.ReadAllText(__SOURCE_DIRECTORY__ + "/2015-03-input.txt")
@@ -16,7 +15,7 @@ module partOne =
     let visits directions =
         let rec travel dir pos (ls: (int*int) list) =
             match dir with
-            | [] -> ls
+            | []   -> ls
             | h::t -> let newPosition = updatePosition pos h
                       travel t newPosition (ls|> List.append [newPosition])
         travel directions (0,0) [(0,0)]

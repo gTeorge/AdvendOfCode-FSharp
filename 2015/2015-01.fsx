@@ -9,7 +9,7 @@ module partOne =
         | [] -> acc
         | h::t when h = ')' -> countLvls (acc - 1) t
         | h::t when h = '(' -> countLvls (acc + 1) t
-        | h::t -> countLvls acc t
+        | _::t -> countLvls acc t
 
 module partTwo =
     let rec countLvls acc text step =
@@ -19,7 +19,7 @@ module partTwo =
                | [] -> step
                | h::t when h = ')' -> countLvls (acc - 1) t (step + 1)
                | h::t when h = '(' -> countLvls (acc + 1) t (step + 1)
-               | h::t -> countLvls acc t (step + 1)
+               | _::t -> countLvls acc t (step + 1)
 
 partOne.countLvls 0 (source |> Seq.toList)
 |> printfn "%d"
